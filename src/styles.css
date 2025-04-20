@@ -1,0 +1,37 @@
+
+.App {
+  text-align: center;
+    min-height: 100vh;
+    background-image: url('background.png'); /* Path yang benar ke folder public */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+p1 {
+  font-size: larger;
+}
+
+.board {
+  margin: 20px;
+  /* Add styles for the Monopoly board */
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #333;
+}
+/* Untuk landscape mode di HP */
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  .App{
+    background-size: contain; /* Biar nggak terlalu zoom in */
+    background-position: center center;
+    flex-direction: row; /* Bisa sesuaikan kalau layout butuh horizontal */
+    justify-content: space-around;
+    padding: 0.5rem;
+  }
+
+  .board {
+    transform: scale(0.8); /* Kecilkan sedikit kalau terlalu gede */
+  }
+}
