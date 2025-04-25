@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css'; // Optional: You can include global styles here
-// import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-// serviceWorkerRegistration.register();
+
 // Create a root element to render the App
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,6 +14,8 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

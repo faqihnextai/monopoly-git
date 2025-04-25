@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import '../styles/boardStyles.css';
 
 const Dice = ({ onRoll }) => {
   const [diceValues, setDiceValues] = useState([1, 1, 1]);
@@ -8,7 +9,7 @@ const Dice = ({ onRoll }) => {
   const handleRoll = () => {
     // Nilai acak untuk setiap dadu
     const randomValues = [Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1];
-    const rollTimes = [2000, 4000, 6000]; // Durasi per dadu (2 detik per dadu)
+    const rollTimes = [1000, 2000, 3000]; // Durasi per dadu (2 detik per dadu)
 
     // Putar suara
     if (audioRef.current) {
@@ -43,8 +44,8 @@ const Dice = ({ onRoll }) => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '20px' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+    <div style={{ textAlign: 'center', marginTop: '20px' }} className='dice-container'>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }} className='dice'>
         {diceValues.map((value, index) => (
           <img
             key={index}
@@ -55,8 +56,8 @@ const Dice = ({ onRoll }) => {
           />
         ))}
       </div>
-      <button onClick={handleRoll} style={{ marginTop: '10px' }}>
-        Roll the Dice
+      <button onClick={handleRoll} style={{ marginTop: '10px' }} className='roll-button'>
+          Push
       </button>
       <audio ref={audioRef} src="/audio/dadu.mp3" preload="auto" />
     </div>

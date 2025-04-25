@@ -1,7 +1,24 @@
-.App{
-   text-align: center;
-   /* background-image: url('/images/background.png'); */
-  }
+/* Reset margin/padding bawaan browser */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Kalau pakai background image di body */
+body {
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover; /* Menutupi seluruh layar */
+  height: 100vh; /* Memastikan body setinggi layar */
+  margin: 0; /* Hilangkan margin agar tidak ada gap */
+}
+
+.App {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Atur tinggi layar penuh */
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,6 +52,28 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body::before {
+    content: "Putar HP kamu ke landscape ya ❤️";
+    position: fixed;
+    z-index: 9999;
+    background: #000;
+    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vw;
+  }
+
+  #root {
+    display: none;
   }
 }
 

@@ -2,8 +2,8 @@
 .board-container {
     perspective: 1000px; /* For 3D effect */
     position: relative;
-    margin: 20px auto;
-    width: 80%;
+    margin:80px auto 10px; /* ↑ ini bikin lebih ke bawah */
+    width: 50%;
     
   }
   
@@ -112,7 +112,49 @@
       transform: translate(-50%, -50%) scale(1);
     }
   }
+
+  /*popup1 lagi*/
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: popupFromBottom 0.5s ease-out;
+  }
   
+  @keyframes popupFromBottom {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  .popup-content {
+    text-align: center;
+    max-width: 90%;
+  }
+  
+  .popup-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  .close-btn {
+    margin-top: 20px;
+    background: #222;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+  }
+  
+
   .block {
     transition: transform 0.5s ease, box-shadow 0.3s ease;
     transform-origin: center;
@@ -124,4 +166,85 @@
     background: #fff5cc; /* ganti warna biar lebih nyala */
     z-index: 1;
   }
+
+  @media (max-width: 900px) {
+    .board-container {
+      width: 95%;
+      margin: 10px auto;
+    }
+  
+    .board {
+      height: 240px;
+    }
+  
+    .block {
+      font-size: 0.7em;
+      padding: 4px;
+    }
+  }
+  .dice img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  @media (max-width: 900px) {
+    .dice img {
+      width: 50px;
+      height: 40px;
+    }
+  }
+  @media (max-width: 480px) {
+    .dice img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+  
+  
+  .dice-container {
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  @media (max-width: 900px) {
+    .dice-container {
+      bottom: -40%;
+    }
+  }
+  
+  .roll-button {
+    position: fixed;
+    bottom: 20px;
+    right: -100px;
+    background-color: #facc15; /* kuning */
+    color: black;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 999;
+    font-size: 20px;
+  }
+  
+  .roll-button:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Tambahan untuk layar kecil */
+  @media (max-width: 600px) {
+    .roll-button {
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+    
   

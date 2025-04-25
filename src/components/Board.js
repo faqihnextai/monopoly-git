@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import Dice from './Dice';
 import Message from './Message';
-import './boardStyles.css';
+import '../styles/boardStyles.css';
+import PopupThanks from './popups/PopupThanks';
+import PopupInvite from './popups/PopupInvite';
+import PopupLocation from './popups/PopupLocation';
+import PopupPayment from './popups/PopupPayment';
+import PopupSchedule from './popups/PopupSchedule';
+import PopupGuestMessages from './popups/PopupGuestMessages';
 
 const messages = [
   // Akad (1–4)
@@ -47,6 +53,21 @@ const Board = () => {
     setShowMessage(true);
   };
   
+  const [popupType, setPopupType] = useState(null);
+
+  const renderPopup = () => {
+    switch (popupType) {
+      case 1: return <PopupThanks onClose={() => setPopupType(null)} />;
+      case 2: return <PopupInvite onClose={() => setPopupType(null)} />;
+      case 3: return <PopupSchedule onClose={() => setPopupType(null)} />;
+      case 4: return <PopupLocation onClose={() => setPopupType(null)} />;
+      case 5: return <PopupPayment onClose={() => setPopupType(null)} />;
+      case 6: return <PopupGuestMessages onClose={() => setPopupType(null)} />;
+      default: return null;
+    }
+  };
+  
+  {renderPopup()}
   return (
     <div className="board-container">
       <div className="board">

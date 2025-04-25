@@ -1,12 +1,14 @@
-
 .App {
   text-align: center;
-    min-height: 100vh;
-    background-image: url('background.png'); /* Path yang benar ke folder public */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  /* min-height: 100vh; Atau coba height: auto; atau height: 100%; */
+  /* background-image: url('background.png'); Path yang benar ke folder public */
+  /* background-size: cover; Atau coba 100% 100% */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* Tambahkan ini untuk memastikan tidak ada jarak yang tidak diinginkan */
+  margin: 0;
+  padding: 0;
+}
 p1 {
   font-size: larger;
 }
